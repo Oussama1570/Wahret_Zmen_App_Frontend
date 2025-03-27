@@ -25,3 +25,54 @@
     display: none;
   }
   
+
+  .custom-carousel .control-arrow {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    z-index: 10;
+  }
+  
+  /* Default arrow positions for desktop */
+  .custom-carousel .control-prev {
+    left: -50px;
+  }
+  
+  .custom-carousel .control-next {
+    right: -50px;
+  }
+  
+  /* Adjust arrow position for tablets and smaller */
+  @media (max-width: 1024px) {
+    .custom-carousel .control-prev {
+      left: -20px;
+    }
+  
+    .custom-carousel .control-next {
+      right: -20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .custom-carousel .control-prev,
+    .custom-carousel .control-next {
+      left: 0;
+      right: 0;
+      transform: scale(0.8);
+    }
+  
+    .custom-carousel .carousel-slider {
+      padding: 10px;
+    }
+  
+    .custom-carousel .carousel .slide {
+      margin: 0 auto;
+    }
+  }
+  
+  /* Hide dots if not needed */
+  .custom-carousel .carousel .control-dots {
+    display: none;
+  }
+  

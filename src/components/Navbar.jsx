@@ -60,7 +60,8 @@ const Navbar = () => {
         </button>
 
         {/* Center Navigation Links */}
-        <ul className={`nav-links mobile-center ${isMobileMenuOpen ? "open" : ""}`}>
+        <ul className={`nav-links ${isMobileMenuOpen ? "mobile-center open" : ""}`}>
+
           <li><Link to="/" onClick={() => setIsMobileMenuOpen(false)}>{t("home")}</Link></li>
           <li><Link to="/products" onClick={() => setIsMobileMenuOpen(false)}>{t("products")}</Link></li>
           <li><Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>{t("about-menu")}</Link></li>

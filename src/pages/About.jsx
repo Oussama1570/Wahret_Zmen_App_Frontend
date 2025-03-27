@@ -12,6 +12,7 @@ const About = () => {
   const { t } = useTranslation();
 
   return (
+    <div className="main-content">
     <section className="px-6 py-12 max-w-6xl mx-auto about-section space-y-16">
 
       <Helmet>
@@ -140,6 +141,7 @@ const About = () => {
       </FadeInSection>
 
     </section>
+    </div>
   );
 };
 

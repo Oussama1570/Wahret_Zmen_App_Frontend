@@ -142,7 +142,7 @@ i18n
         about: "About Us",
         contact: "Contact",
         contactUs: "Contact Us",
-        location: "Tunis, Tunisia",
+        location: "Souk Essouf, Tunis",
         followUs: "Follow Us",
         rights: "All rights reserved.",
       },

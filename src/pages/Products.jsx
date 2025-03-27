@@ -65,36 +65,34 @@ const Products = () => {
 
   return (
     <FadeInSection>
-      <div className="container mx-auto py-10 px-4 container-Products">
-        {/* Set the title for the Product Page */}
+      <div className="main-content" >
+      <div className="container mx-auto py-10 px-4 sm:px-6 md:px-10 lg:px-20 max-w-[1440px]">
         <Helmet>
           <title>{t("products_page.title")} - Wahret Zmen</title>
         </Helmet>
 
-        {/* 🏷️ Page Title */}
         <FadeInSection>
-          <h2 className="text-4xl font-bold font-serif text-center mb-6 drop-shadow-lg bg-gradient-to-r from-[#D4AF37] to-[#A67C52] bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 ease-in-out">
+          <h2 className="text-3xl sm:text-4xl font-bold font-serif text-center mb-6 drop-shadow-lg bg-gradient-to-r from-[#D4AF37] to-[#A67C52] bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 ease-in-out">
             {t("products_page.title")}
           </h2>
         </FadeInSection>
 
-        {/* 📜 Wahret Zmen Boutique Overview */}
         <FadeInSection delay={0.2}>
-          <div className="text-center text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
-            <p className="mt-4 text-lg">{t("products_page.overview")}</p>
+          <div className="text-center text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed px-2">
+            <p className="text-base sm:text-lg">{t("products_page.overview")}</p>
           </div>
         </FadeInSection>
 
-        {/* 🔎 Filter & Search Section */}
         <FadeInSection delay={0.3}>
           <div className="mb-8 flex flex-col items-center space-y-4">
-            <h3 className="category-title">{t("category")}</h3>
+            <h3 className="category-title text-lg font-medium text-[#5a382d]">
+              {t("category")}
+            </h3>
             <SelectorsPageProducts options={categories} onSelect={setSelectedCategory} />
             <SearchInput setSearchTerm={setSearchTerm} placeholder={t("search_placeholder")} />
           </div>
         </FadeInSection>
 
-        {/* 🛍️ Products Grid */}
         <FadeInSection delay={0.4}>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {filteredProducts.length > 0 ? (
@@ -102,23 +100,26 @@ const Products = () => {
                 <ProductCard key={index} product={product} />
               ))
             ) : (
-              <p className="col-span-full text-center text-gray-500">{t("no_products_found")}</p>
+              <p className="col-span-full text-center text-gray-500">
+                {t("no_products_found")}
+              </p>
             )}
           </div>
         </FadeInSection>
 
-        {/* 🆕 Load More Button Added Here */}
         {filteredProducts.length < products.length && (
           <FadeInSection delay={0.5}>
             <div className="text-center mt-8">
-              <button className="wahret-zmen-btn" onClick={handleLoadMore}>
+              <button className="wahret-zmen-btn">
                 {t("load_more")}
               </button>
             </div>
           </FadeInSection>
         )}
       </div>
+      </div>
     </FadeInSection>
+    
   );
 };
 
