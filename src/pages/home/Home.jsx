@@ -11,7 +11,6 @@ const Home = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="home-wrapper">
     <div className="main-content">
     <div className="home-container px-4 sm:px-6 md:px-10 lg:px-20 max-w-[1440px] mx-auto">
       {/* Set the title for the Home Page */}
@@ -80,7 +79,6 @@ const Home = () => {
           <News />
         </section>
       </FadeInSection>
-    </div>
     </div>
     </div>
   );

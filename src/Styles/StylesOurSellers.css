@@ -77,34 +77,18 @@
   }
   
   .our-sellers-container {
-    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
     max-width: 100%;
-    overflow-x: hidden;
-    padding: 0 1rem;
     box-sizing: border-box;
   }
 
-  .carousel-wrapper {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    gap: 1rem;
-    padding: 1rem 0;
-  }
-  
-  .carousel-wrapper::-webkit-scrollbar {
-    display: none; /* optional: hide scrollbar */
-  }
-  
-  @media (max-width: 768px) {
-    .product-card {
-      min-width: 230px; /* ✅ Prevent squishing but allow scrolling */
-      flex-shrink: 0;
-    }
-  }
-
-  .slick-slider, .swiper {
-    width: 100%;
-    overflow-x: hidden;
+  .product-card {
+    flex: 1 1 280px; /* grow, shrink, base */
+    max-width: 100%;
+    min-width: 260px;
+    box-sizing: border-box;
   }
