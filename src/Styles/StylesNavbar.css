@@ -1,0 +1,478 @@
+/* General Navbar Styles */
+.navbar-container {
+    width: 100%;
+    background-color: #F8F9FA;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  /* Navbar Content */
+  .navbar-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    position: relative;
+  }
+  
+  /* Navbar Left (Logo & Language Switcher) */
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Reduce space between logo and language switcher */
+  }
+  
+  /* Language Switcher */
+  .language-switcher {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #6C757D;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  /* Hover Effect */
+  .language-switcher:hover {
+    color: #343A40;
+  }
+  
+  /* Ensure the dropdown does not overlap */
+  .language-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: auto;
+    min-width: 100px;
+    z-index: 100;
+  }
+  
+  /* Language Switcher Fix on Mobile */
+  @media (max-width: 768px) {
+    .language-switcher {
+      font-size: 1rem;
+    }
+  
+    .navbar-left {
+      flex-direction: row;
+      gap: 10px;
+      margin-left: 100px !important;
+    }
+  }
+  
+  
+  /* Logo */
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #6C757D;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Cairo', sans-serif;
+    
+  }
+  
+  .logo-img {
+    width: 40px;
+    height: auto;
+    border-radius: 50%;
+    margin-inline-end: 12px;
+    
+  }
+  
+  /* Centered Navigation Menu */
+/* Centered Navigation Menu */
+/* ✅ Responsive Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    padding: 0;
+    position: absolute;
+    left: 46%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    
+}
+
+/* 📱 Mobile View */
+@media (max-width: 1024px) {
+  .nav-links.mobile-center {
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    max-width: 400px;
+    background: #F8F9FA;;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    z-index: 1100;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  /* Show menu when open */
+  .nav-links.open {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+
+ 
+  .nav-links li {
+    display: inline-block;
+  }
+  
+  /* Navigation Menu Links */
+  .nav-links a {
+    text-decoration: none;
+    color: #6C757D;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease-in-out;
+    left: 0%;
+    
+  }
+  
+  /* Underline Hover Effect */
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: #343A40;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+  }
+  
+  .nav-links a:hover::after {
+    width: 100%;
+    left: 0;
+  }
+  
+  .nav-links a:hover {
+    color: #343A40;
+  }
+  
+  /* ✅ Mobile Menu Button (Fix for Burger Menu) */
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.8rem;
+    color: #6C757D;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* 📱 Show Burger Menu on Mobile */
+@media (max-width: 1024px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+}
+
+/* 🛠️ Fix RTL (Arabic) Layout */
+html[dir="rtl"] .mobile-menu-btn {
+    margin-left: auto;
+    margin-right: 0;
+}
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .mobile-menu-btn {
+      display: block;
+    }
+  
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background: white;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem 0;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  
+    .nav-links.open {
+      display: flex;
+    }
+  
+    .nav-links li {
+      margin: 10px 0;
+    }
+  }
+  
+  /* Navbar Icons */
+  .nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .nav-icons a {
+    font-size: 2rem;
+    color: #6C757D;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .nav-icons a:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Cart Badge */
+  /* Cart Icon Container */
+.cart-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #6C757D;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  /* Ensure Badge is Positioned Correctly */
+  .cart-badge {
+    position: absolute;
+    top: -5px; /* Adjust if necessary */
+    right: -10px; /* Adjust to align properly */
+    background-color: #dc3545; /* Red color */
+    color: white;
+    font-size: 0.85rem;
+    font-weight: bold;
+    padding: 4px 7px;
+    border-radius: 50%;
+    min-width: 18px;
+    text-align: center;
+  }
+  
+  /* Hover Effect */
+  .cart-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  
+
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.8rem;
+    color: #6C757D;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  /* Remove hover background */
+  .mobile-menu-btn:hover {
+    background: none;
+    transform: scale(1.1); /* Optional: Slight scaling effect */
+  }
+  
+  /* Responsive - Show burger menu on mobile */
+  @media (max-width: 768px) {
+    .mobile-menu-btn {
+      display: block;
+    }
+  }
+  
+
+
+/* User Icon */
+.user-icon {
+    font-size: 2rem; /* Bigger size */
+    color: #6C757D; /* Default color */
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, color 0.3s ease-in-out;
+}
+
+.user-icon:hover {
+    transform: scale(1.1);
+}
+
+/* When user is logged in, change icon to blue */
+.user-icon.logged-in {
+    color: #007BFF; /* Blue color */
+}
+
+
+/* User Menu - Dropdown */
+.user-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.user-dropdown {
+    position: absolute;
+    right: -20px; /* ✅ Moves dropdown further to the right */
+    top: 100%;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 160px;
+    padding: 8px 0;
+    display: none;
+    z-index: 100;
+}
+
+.user-dropdown.active {
+    display: block;
+}
+
+/* Dropdown Menu Items */
+.user-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Styling for all items */
+.user-dropdown li, 
+.user-dropdown button { /* Apply same styles to Logout button */
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    padding: 12px 20px; /* Same padding for consistency */
+    font-size: 14px !important; /* Match all items */
+    font-weight: 600 !important; /* Keep uniform weight */
+    color: #242121;
+    cursor: pointer;
+    width: 100%;
+    background: none;
+    border: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Links inside dropdown */
+.user-dropdown li a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    padding: 8px 0;
+}
+
+/* Hover effect for all items */
+.user-dropdown li:hover, 
+.user-dropdown button:hover {
+    background-color: #f5f5f5;
+}
+
+/* 🔥 Responsive User Dropdown */
+@media (max-width: 768px) {
+    .user-dropdown {
+        width: 160px;
+        top: 45px;
+    }
+
+    .user-dropdown li, 
+    .user-dropdown button {
+        font-size: 14px;
+        padding: 10px 18px;
+    }
+}
+
+/* Proper layout for mobile */
+@media (max-width: 480px) {
+    .user-dropdown {
+        width: 150px;
+        top: 42px;
+    }
+
+    .user-dropdown li, 
+    .user-dropdown button {
+        font-size: 13px;
+        padding: 8px 15px;
+    }
+}
+
+
+
+
+.user-avatar-btn {
+    background: none !important; /* Removes any background color */
+    border: none; /* Ensures no border is applied */
+    padding: 5px; /* Adjust padding if needed */
+    border-radius: 50%; /* Keeps it circular if needed */
+}
+
+.user-avatar-btn:focus,
+.user-avatar-btn:hover {
+    background: none !important; /* Prevents background from changing */
+}
+
+.user-icon.logged-in {
+    color: #007BFF !important; /* Keeps the icon blue */
+    background: none !important; /* Removes background */
+}
+
+
+
+
+  
+  /* Make logo stick to the left/right more closely */
+  .logo {
+    margin-right:50px !important;
+    
+    
+  }
+  
+  .logo-img {
+    width: 40px;
+    height: auto;
+    margin-right: 50px;
+    border-radius: 50%;
+  }
+
+  .logo-img {
+    width: 40px;
+    height: auto;
+    border-radius: 50%;
+    margin-inline-end: 12px; /* Better RTL support */
+  }
+  .logo-text {
+    font-size: 1.6rem;
+  }
+    
+/* Dashboard link placed at the edge of the navbar */
+.dashboard-link {
+  
+ 
+}
+
