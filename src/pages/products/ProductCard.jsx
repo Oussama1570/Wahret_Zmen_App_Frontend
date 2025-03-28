@@ -29,7 +29,8 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden p-4 transition-transform duration-300 hover:scale-105 flex flex-col justify-between text-center w-72">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden p-4 transition-transform duration-300 hover:scale-105 flex flex-col justify-between text-center w-full max-w-xs mx-auto">
+
       <div className="relative w-full h-52 border rounded-md overflow-hidden group">
         <Link to={`/products/${product._id}`}>
           <img

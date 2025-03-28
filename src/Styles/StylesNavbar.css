@@ -3,13 +3,13 @@
 /* ========================== */
 .navbar-container {
   width: 100%;
-  background-color: #F8F9FA;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 1rem 0;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
+  background-color: #F8F9FA;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
 }
 
 .navbar-content {
@@ -103,13 +103,13 @@ html[dir="rtl"] .logo {
   transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
 }
 
+.nav-links a:hover {
+  color: #343A40;
+}
+
 .nav-links a:hover::after {
   width: 100%;
   left: 0;
-}
-
-.nav-links a:hover {
-  color: #343A40;
 }
 
 /* ========================== */
@@ -126,7 +126,6 @@ html[dir="rtl"] .logo {
 }
 
 .mobile-menu-btn:hover {
-  background: none;
   transform: scale(1.1);
 }
 
@@ -151,7 +150,7 @@ html[dir="rtl"] .logo {
     flex-direction: column;
     align-items: center;
     padding: 1rem 0;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     z-index: 1100;
     transition: all 0.3s ease;
@@ -188,8 +187,18 @@ html[dir="rtl"] .mobile-menu-btn {
   display: flex;
   align-items: center;
   gap: 1rem;
-  flex-wrap: nowrap;
   justify-content: flex-end;
+  flex-wrap: nowrap;
+}
+
+.nav-icons a {
+  font-size: 2rem;
+  color: #6C757D;
+  transition: transform 0.2s ease-in-out;
+}
+
+.nav-icons a:hover {
+  transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
@@ -230,16 +239,6 @@ html[dir="rtl"] .mobile-menu-btn {
   }
 }
 
-.nav-icons a {
-  font-size: 2rem;
-  color: #6C757D;
-  transition: transform 0.2s ease-in-out;
-}
-
-.nav-icons a:hover {
-  transform: scale(1.1);
-}
-
 /* ========================== */
 /* 🛍️ Cart Icon Badge */
 /* ========================== */
@@ -252,6 +251,10 @@ html[dir="rtl"] .mobile-menu-btn {
   color: #6C757D;
   text-decoration: none;
   transition: transform 0.2s ease-in-out;
+}
+
+.cart-icon:hover {
+  transform: scale(1.1);
 }
 
 .cart-badge {
@@ -268,18 +271,30 @@ html[dir="rtl"] .mobile-menu-btn {
   text-align: center;
 }
 
-.cart-icon:hover {
-  transform: scale(1.1);
-}
-
 /* ========================== */
 /* 👤 User Icon & Dropdown */
 /* ========================== */
+.user-avatar-btn {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0;
+  box-shadow: none !important;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .user-icon {
   font-size: 2rem;
   color: #6C757D;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out, color 0.3s ease-in-out;
+  transition: transform 0.2s, color 0.3s;
 }
 
 .user-icon:hover {
@@ -295,22 +310,15 @@ html[dir="rtl"] .mobile-menu-btn {
   display: inline-block;
 }
 
-.user-avatar-btn {
-  background: none !important;
-  border: none;
-  padding: 5px;
-  border-radius: 50%;
-}
-
 .user-dropdown {
   position: absolute;
   right: -20px;
   top: 100%;
-  background-color: white;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
   width: 160px;
   padding: 8px 0;
+  background: #F8F9FA !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: none;
   z-index: 100;
 }
@@ -321,8 +329,8 @@ html[dir="rtl"] .mobile-menu-btn {
 
 .user-dropdown ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .user-dropdown li,
@@ -330,40 +338,38 @@ html[dir="rtl"] .mobile-menu-btn {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   padding: 12px 20px;
   font-size: 14px;
   font-weight: 600;
   color: #242121;
-  cursor: pointer;
-  width: 100%;
   background: none;
   border: none;
-  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .user-dropdown li a {
   text-decoration: none;
   color: inherit;
-  display: block;
-  text-align: center;
   width: 100%;
+  text-align: center;
   padding: 8px 0;
+  font: inherit;
 }
 
 .user-dropdown li:hover,
 .user-dropdown button:hover {
-  background-color: #f5f5f5;
+  background: #e9ecef;
 }
 
 @media (max-width: 768px) {
   .user-dropdown {
-    width: 160px;
     top: 45px;
   }
 
   .user-dropdown li,
   .user-dropdown button {
-    font-size: 14px;
     padding: 10px 18px;
   }
 }

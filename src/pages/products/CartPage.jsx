@@ -39,16 +39,18 @@ const CartPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F1E9] flex items-center justify-center py-12">
-      <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg p-8 border border-[#A67C52]">
-        <div className="flex items-center justify-between border-b pb-4">
-          <h2 className="text-3xl font-bold text-[#A67C52]">
+    <div className="main-content">
+    <div className="min-h-screen bg-[#F8F1E9] py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 sm:p-8 border border-[#A67C52]">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b pb-4 gap-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#A67C52]">
             {t("cart.title")}
           </h2>
           {cartItems.length > 0 && (
             <button
               onClick={handleClearCart}
-              className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-all duration-200"
+              className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-all duration-200 w-full sm:w-auto"
             >
               {t("cart.clear_cart")}
             </button>
@@ -58,14 +60,14 @@ const CartPage = () => {
         {/* Cart Items */}
         <div className="mt-6">
           {cartItems.length > 0 ? (
-            <ul className="divide-y divide-gray-200">
-              {cartItems.map((product, index) => (
+            <ul className="space-y-4">
+              {cartItems.map((product) => (
                 <li
                   key={`${product._id}-${product.color?.colorName}`}
-                  className="flex items-center py-6 bg-gray-50 p-4 rounded-lg shadow-sm mb-4 border border-[#A67C52]"
+                  className="flex flex-col sm:flex-row items-center sm:items-start bg-gray-50 p-4 rounded-lg shadow-sm border border-[#A67C52] gap-4"
                 >
-                  {/* Product Image */}
-                  <div className="h-24 w-24 overflow-hidden rounded-lg border-2 border-[#A67C52] shadow-md">
+                  {/* Image */}
+                  <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-lg border-2 border-[#A67C52] shadow-md">
                     <img
                       src={getImgUrl(product.color?.image || product.coverImage)}
                       alt={product.title}
@@ -73,9 +75,9 @@ const CartPage = () => {
                     />
                   </div>
 
-                  {/* Product Details */}
-                  <div className="ml-6 flex flex-1 flex-col">
-                    <div className="flex justify-between items-center">
+                  {/* Details */}
+                  <div className="flex-1 w-full">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                       <h3 className="text-lg font-semibold text-gray-900">
                         <Link to="/" className="hover:text-[#A67C52]">
                           {product.title}
@@ -94,7 +96,7 @@ const CartPage = () => {
                       {t("cart.color")}: {product.color?.colorName || t("cart.original")}
                     </p>
 
-                    <div className="flex items-center justify-between mt-3">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mt-3 gap-4">
                       {/* Quantity Selector */}
                       <div className="flex items-center">
                         <label className="mr-2 text-gray-700">{t("cart.qty")}:</label>
@@ -105,14 +107,14 @@ const CartPage = () => {
                           onChange={(e) =>
                             handleQuantityChange(product, Number(e.target.value))
                           }
-                          className="border border-[#A67C52] rounded-lg px-3 py-1 w-16 focus:outline-none focus:ring-2 focus:ring-[#A67C52]"
+                          className="border border-[#A67C52] rounded-lg px-3 py-1 w-20 text-center focus:outline-none focus:ring-2 focus:ring-[#A67C52]"
                         />
                       </div>
 
                       {/* Remove Button */}
                       <button
                         onClick={() => handleRemoveFromCart(product)}
-                        className="text-white bg-red-600 px-4 py-2 rounded-lg hover:bg-red-700 transition-all duration-200"
+                        className="text-white bg-red-600 px-4 py-2 rounded-lg hover:bg-red-700 transition-all duration-200 w-full sm:w-auto"
                       >
                         {t("cart.remove")}
                       </button>
@@ -128,22 +130,23 @@ const CartPage = () => {
           )}
         </div>
 
-        {/* Cart Summary & Checkout */}
+        {/* Cart Summary */}
         {cartItems.length > 0 && (
           <div className="border-t border-[#A67C52] pt-6 mt-6">
-            <div className="flex justify-between text-lg font-semibold">
+            <div className="flex flex-col sm:flex-row justify-between text-lg font-semibold gap-2">
               <p>{t("cart.subtotal")}</p>
               <p className="text-[#A67C52]">${totalPrice}</p>
             </div>
             <Link
               to="/checkout"
-              className="mt-6 block text-center bg-[#A67C52] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#8a5d3b] transition-all duration-200"
+              className="mt-6 block text-center bg-[#A67C52] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#8a5d3b] transition-all duration-200 w-full"
             >
               {t("cart.proceed_to_checkout")}
             </Link>
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 };

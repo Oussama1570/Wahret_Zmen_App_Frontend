@@ -9,7 +9,7 @@ import FadeInSection from "../../Animations/FadeInSection.jsx"; // Import fade-i
 import { useTranslation } from "react-i18next";
 
 
-const categories = ["All", "Kaftan", "Jebba", "Gandoura", "Safsari", "Chachia"];
+const categories = ["All", "Men", "Women", "Children"];
 
 const responsive = {
   superLargeDesktop: { breakpoint: { max: 4000, min: 1400 }, items: 3, slidesToSlide: 1 },
@@ -50,7 +50,8 @@ const OurSellers = () => {
             </div>
       
             {/* Carousel */}
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-6xl mx-auto px-2 sm:px-4">
+
               {filteredProducts.length > 0 ? (
                 <Carousel
                   responsive={responsive}
